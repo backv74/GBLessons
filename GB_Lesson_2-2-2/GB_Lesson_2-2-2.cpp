@@ -3,12 +3,11 @@
 class Fruit
 {
 protected:
-	
-	
-public:
-
 	std::string nameF;
 	std::string colorF;
+	
+public:
+		
 	Fruit() {}
 	Fruit(std::string color) :colorF(color) {}
 	
@@ -26,10 +25,9 @@ public:
 		colorF = "red"; 
 	}
 	
-	Apple(std::string color)
+	Apple(std::string color): Fruit(color)
 	{
 		nameF = "Apple";
-		colorF = color;
 	}
 
 };
@@ -44,10 +42,9 @@ public:
 		colorF = "yellow";
 	}
 
-	Banana(std::string color)
+	Banana(std::string color):Fruit(color)
 	{
 		nameF = "Banana";
-		colorF = color;
 	}
 
 };
@@ -62,10 +59,9 @@ public:
 		colorF = "green";
 	}
 
-	GrannySmith(std::string color)
+	GrannySmith(std::string color):Apple(color)
 	{
 		nameF = "Granny Smith apple";
-		colorF = color;
 	}
 
 };
