@@ -97,7 +97,7 @@ public:
 		int count = 0;
 		bool aceFlag = false;
 
-		if (m_Cards.empty() == 0) { return 0; }
+		if (m_Cards.empty()) { return 0; }
 
 		for (auto iter = m_Cards.begin(); iter != m_Cards.end(); iter++) {
 			if ((*iter)->getValue() == Card::Number::Ace)
@@ -137,7 +137,7 @@ public:
 		}
 		else { return false; }
 	}
-	void Bust() {
+	void Bust() const {
 		std::cout << "Player " << m_name << " is boosted!" << std::endl;
 	}
 };
@@ -148,8 +148,9 @@ std::ostream& operator<<(std::ostream& os, const GenericPlayer& aPlayer) {
 		for (auto pCard = aPlayer.m_Cards.begin(); pCard != aPlayer.m_Cards.end(); pCard++) {
 			os << *(*pCard) << " ";
 		}
+		
 		if (aPlayer.GetValue() != 0) {
-			os << " ( " << aPlayer.GetValue() << " ) ";
+			os << " total sum ( " << aPlayer.GetValue() << " ) " ;
 		}
 	}
 	else {
@@ -169,7 +170,7 @@ public:
 		bool flag = true;
 		while (flag)
 		{
-			std::cout << "Do you need 1 more card? Y/N ";
+			std::cout << m_name << ", do you need 1 more card? Y/N ";
 			std::cin >> m_answer;
 			if (m_answer[0] == 'Y' || m_answer[0] == 'y') {
 				return true;
