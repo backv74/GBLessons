@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package protocol;
+
+message FullName{
+	string name =1 ;
+	string surname = 2;
+	optional string patronymic = 3;
+}
+
+message Student{
+	string name =1 ;
+	string surname = 2;
+	optional string patronymic = 3;
+	repeated int32 score = 4 [packed = true]; 
+	int32 average_score = 5;
+}
+
+message StudentsGroup{
+	repeated Student students = 1;
+}
